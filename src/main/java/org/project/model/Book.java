@@ -18,6 +18,16 @@ public class Book {
     //Eventually picture
     public  Book() {
     }
+
+    public Book(String ISBN, String title, String author, String publisher, String description) {
+
+        this.ISBN = ISBN;
+        this.title = title;
+        this.author = author;
+        this.publisher = publisher;
+        this.description = description;
+    }
+
     public int getId() {return id;    }
     public void setId(int id) {this.id = id;   }
 
