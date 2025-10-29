@@ -10,28 +10,28 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomeController {
 
-	@Autowired
-	private BookRepo bookRepository;
+    @Autowired
+    private BookRepo bookRepository;
 
 
-	//TODO temp probably wanna have a DB with persistence
-	private boolean setup = true;
-	public void setup(){
-		Book book1 = new Book("0000000000001", "Title1", "Author1", "Publisher1", "Description of book 1");
-		Book book2 = new Book("0000000000002", "Title2", "Author2", "Publisher2", "Description of book 2");
-		Book book3 = new Book("0000000000003", "Title3", "Author3", "Publisher3", "Description of book 3");
+    //TODO temp probably wanna have a DB with persistence
+    private boolean setup = true;
+    public void setup(){
+        Book book1 = new Book("0000000000001", "Title1", "Author1", "Publisher1", "Description of book 1");
+        Book book2 = new Book("0000000000002", "Title2", "Author2", "Publisher2", "Description of book 2");
+        Book book3 = new Book("0000000000003", "Title3", "Author3", "Publisher3", "Description of book 3");
 
-		bookRepository.save(book1);
-		bookRepository.save(book2);
-		bookRepository.save(book3);
-	}
+        bookRepository.save(book1);
+        bookRepository.save(book2);
+        bookRepository.save(book3);
+    }
 
-	@GetMapping("/")
-	public String home(Model model){
-		if (setup){
-			setup = false;
-			setup();
-		}
-		return "home";
-	}
+    @GetMapping("/")
+    public String home(Model model){
+        if (setup){
+            setup = false;
+            setup();
+        }
+        return "home";
+    }
 }
