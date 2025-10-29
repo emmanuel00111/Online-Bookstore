@@ -5,17 +5,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<!-- Add Book Form -->
-<h3 th:text="|Add a Book:|"/>
-<form th:action="@{/add-book}" th:object="${book}" method="post">
-    <label>ISBN: <input type="text" th:field="*{ISBN}" /><br/></label>
-    <label>Title: <input type="text" th:field="*{title}" /><br/></label>
-    <label>Author: <input type="text" th:field="*{author}" /><br/></label>
-    <label>Publisher: <input type="text" th:field="*{publisher}" /><br/></label>
-    <label>Description: <input type="text" th:field="*{description}" /><br/></label>
-    <button type="submit">Add Book</button>
-</form>
 
+<!-- Book Search Bar -->
+<form th:action="@{/get-book-list}" method="get">
+    <input hidden name="function" value="search">
+    <input type="text" name="variable" >
+    <button type="submit">Search</button>
+</form>
 
 <h3 th:text="|Book List|"/>
 <table>
@@ -44,5 +40,17 @@
         </td>
     </tr>
 </table>
+
+<!-- Add Book Form -->
+<h3 th:text="|Add a Book:|"/>
+<form th:action="@{/add-book}" th:object="${book}" method="post">
+    <label>ISBN: <input type="text" th:field="*{ISBN}" /><br/></label>
+    <label>Title: <input type="text" th:field="*{title}" /><br/></label>
+    <label>Author: <input type="text" th:field="*{author}" /><br/></label>
+    <label>Publisher: <input type="text" th:field="*{publisher}" /><br/></label>
+    <label>Description: <input type="text" th:field="*{description}" /><br/></label>
+    <button type="submit">Add Book</button>
+</form>
+
 </body>
 </html>
